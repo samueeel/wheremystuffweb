@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<!-- saved from url=(0088)https://a577e333-b087-43ae-ac74-706452a3b960-%2D1749114000-%2D4c8ea1f7.app.yourware.app/ -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>速速归位GO - 告别健忘，打造你的秩序宇宙</title>
+    <link href="./css2" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green-light: #E6F5EE; /* Very light green for backgrounds */
+            --primary-green-medium: #A8D8B9; /* Soft green */
+            --primary-green-dark: #6EBF8B; /* Brighter green for accents, buttons */
+            --primary-blue-light: #E3F2FD; /* Very light blue */
+            --primary-blue-medium: #90CAF9; /* Soft blue */
+            --accent-yellow: #FFF9C4; /* Pale yellow */
+            --accent-orange: #FFDAB9; /* Soft peach/orange */
+            --text-dark: #37474F; /* Dark blue-gray */
+            --text-light: #FFFFFF;
+            --bg-light: #FFFFFF;
+            --bg-section-alt: #F8F9FA; /* Light gray for alternating sections */
+            --font-main: 'Noto Sans SC', sans-serif;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            line-height: 1.8;
+            background-color: var(--bg-light);
+            font-size: 16px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-bottom: 0.8em;
+            color: var(--primary-green-dark);
+        }
+        h1 { font-size: 2.8rem; line-height: 1.2; }
+        h2 { font-size: 2.2rem; line-height: 1.3; }
+        h3 { font-size: 1.6rem; line-height: 1.4; }
+
+        p {
+            margin-bottom: 1.2em;
+            color: #546E7A; /* Slightly lighter than text-dark */
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--primary-green-dark);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            background-color: #5AA87A; /* Darker shade of primary-green-dark */
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: var(--accent-orange);
+            color: var(--text-dark);
+        }
+        .btn-secondary:hover {
+            background-color: #FFC8A0;
+        }
+
+        /* Header */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .site-header .container-header {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-green-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        .logo span {
+            color: var(--accent-orange);
+        }
+
+        /* Hero Section */
+        #hero {
+            background-color: var(--primary-green-light);
+            background-image: url('iv88vyu4al.png');
+            background-size: cover;
+            background-position: center;
+            color: var(--text-dark); /* Changed to dark for better contrast on light bg image */
+            text-align: center;
+            padding: 180px 0 120px; /* Increased top padding for fixed header */
+            position: relative;
+        }
+        #hero::before { /* Overlay for better text readability */
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(255, 255, 255, 0.8); /* Light overlay */
+        }
+        #hero .container {
+            position: relative; /* To ensure content is above overlay */
+            z-index: 1;
+        }
+
+        #hero h1 {
+            color: var(--primary-green-dark); /* Ensure heading is prominent */
+            margin-bottom: 20px;
+        }
+        #hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            color: #455A64;
+        }
+        .hero-visual {
+            margin-top: 40px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        .hero-visual img {
+            width: 100%;
+            display: block;
+        }
+
+
+        /* Alternating Section Backgrounds */
+        section:nth-child(even) {
+            background-color: var(--bg-section-alt);
+        }
+
+        /* Problem/Solution Section */
+        #problem-solution .problem-solution-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        @media (min-width: 768px) {
+            #problem-solution .problem-solution-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .problem-description, .solution-description {
+            padding: 20px;
+        }
+        .problem-description h3 { color: #E57373; /* Reddish for pain points */ }
+        .problem-img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+            border-radius: var(--border-radius);
+        }
+
+
+        /* Features Section */
+        #features .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .feature-item {
+            background-color: var(--bg-light);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary-green-dark);
+        }
+        .feature-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        .feature-item img {
+            width: 80%;
+            max-width: 180px;
+            height: auto;
+            margin: 0 auto 20px;
+            display: block;
+        }
+
+        /* Gamification Section */
+        #gamification {
+            background-color: var(--primary-blue-light);
+        }
+        #gamification h2 { color: var(--primary-blue-medium); }
+        .gamification-content {
+            text-align: center;
+        }
+        .planet-evolution {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .planet-stage {
+            text-align: center;
+            max-width: 300px;
+        }
+        .planet-stage img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            border: 5px solid var(--bg-light);
+        }
+        .planet-stage h4 {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        /* How to Start Section */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        .step {
+            padding: 20px;
+        }
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 50%;
+            background-color: var(--accent-orange);
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        .step img.qr-placeholder {
+            width: 150px;
+            height: 150px;
+            margin-top: 10px;
+            border-radius: var(--border-radius);
+            border: 1px solid #ddd;
+        }
+        .step img.op-placeholder {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            margin-top: 10px;
+            border-radius: var(--border-radius);
+            border: 1px solid #ddd;
+        }
+
+
+        /* Final CTA Section */
+        #cta {
+            background-color: var(--primary-green-medium);
+            color: var(--text-light);
+            text-align: center;
+        }
+        #cta h2 {
+            color: var(--text-light);
+            font-size: 2.5rem;
+        }
+        #cta p {
+            color: var(--primary-green-light);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+        .qr-code-final {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            border-radius: var(--border-radius);
+            border: 5px solid var(--bg-light);
+            box-shadow: var(--shadow);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--primary-green-light);
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+        }
+        footer a {
+            color: var(--primary-green-medium);
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animation */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            h3 { font-size: 1.4rem; }
+            .container { padding: 40px 15px; }
+            #hero { padding: 140px 0 80px; }
+            .site-header .container-header { flex-direction: column; gap: 10px;}
+        }
+        @media (max-width: 480px) {
+            body { font-size: 15px; }
+            h1 { font-size: 2rem; }
+            .btn { padding: 10px 20px; font-size: 0.9rem;}
+            .hero-visual { margin-top: 20px; }
+        }
+
+    </style>
+<input type="hidden" id="_o_dbjbempljhcmhlfpfacalomonjpalpko" data-inspect-config="3"><script type="text/javascript" src="chrome-extension://dbjbempljhcmhlfpfacalomonjpalpko/scripts/inspector.js"></script><style data-id="immersive-translate-input-injected-css">.immersive-translate-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2147483647;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.immersive-translate-attach-loading::after {
+  content: " ";
+
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-2000%, -50%);
+  z-index: 100;
+}
+
+.immersive-translate-loading-spinner {
+  vertical-align: middle !important;
+  width: 10px !important;
+  height: 10px !important;
+  display: inline-block !important;
+  margin: 0 4px !important;
+  border: 2px rgba(221, 244, 255, 0.6) solid !important;
+  border-top: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-left: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  -webkit-animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+  animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+}
+
+@-webkit-keyframes immersive-translate-loading-animation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@keyframes immersive-translate-loading-animation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.immersive-translate-input-loading {
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+}
+
+@keyframes immersiveTranslateShadowRolling {
+  0% {
+    box-shadow: 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  12% {
+    box-shadow: 100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  25% {
+    box-shadow: 110px 0 var(--loading-color), 100px 0 var(--loading-color),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  36% {
+    box-shadow: 120px 0 var(--loading-color), 110px 0 var(--loading-color),
+      100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  50% {
+    box-shadow: 130px 0 var(--loading-color), 120px 0 var(--loading-color),
+      110px 0 var(--loading-color), 100px 0 var(--loading-color);
+  }
+
+  62% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color),
+      120px 0 var(--loading-color), 110px 0 var(--loading-color);
+  }
+
+  75% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      130px 0 var(--loading-color), 120px 0 var(--loading-color);
+  }
+
+  87% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color);
+  }
+
+  100% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.immersive-translate-toast {
+  display: flex;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  right: 0;
+  top: 1%;
+  width: fit-content;
+  padding: 12px 20px;
+  margin: auto;
+  overflow: auto;
+  background: #fef6f9;
+  box-shadow: 0px 4px 10px 0px rgba(0, 10, 30, 0.06);
+  font-size: 15px;
+  border-radius: 8px;
+  color: #333;
+}
+
+.immersive-translate-toast-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.immersive-translate-toast-hidden {
+  margin: 0 20px 0 72px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.immersive-translate-toast-close {
+  color: #666666;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-toast {
+    top: 0;
+    padding: 12px 0px 0 10px;
+  }
+  .immersive-translate-toast-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .immersive-translate-toast-hidden {
+    margin: 10px auto;
+  }
+}
+
+.immersive-translate-modal {
+  display: none;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 15px;
+}
+
+.immersive-translate-modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 40px 24px 24px;
+  border: 1px solid #888;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 270px;
+  font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
+    "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-content {
+    margin: 50% auto !important;
+  }
+}
+
+.immersive-translate-modal .immersive-translate-modal-content-in-input {
+  max-width: 500px;
+}
+.immersive-translate-modal-content-in-input .immersive-translate-modal-body {
+  text-align: left;
+  max-height: unset;
+}
+
+.immersive-translate-modal-title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.immersive-translate-modal-body {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333333;
+  word-break: break-all;
+  margin-top: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-body {
+    max-height: 250px;
+    overflow-y: auto;
+  }
+}
+
+.immersive-translate-close {
+  color: #666666;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.immersive-translate-close:hover,
+.immersive-translate-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.immersive-translate-modal-footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.immersive-translate-btn {
+  width: fit-content;
+  color: #fff;
+  background-color: #ea4c89;
+  border: none;
+  font-size: 16px;
+  margin: 0 8px;
+  padding: 9px 30px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.immersive-translate-btn:hover {
+  background-color: #f082ac;
+}
+.immersive-translate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.immersive-translate-btn:disabled:hover {
+  background-color: #ea4c89;
+}
+
+.immersive-translate-cancel-btn {
+  /* gray color */
+  background-color: rgb(89, 107, 120);
+}
+
+.immersive-translate-cancel-btn:hover {
+  background-color: hsl(205, 20%, 32%);
+}
+
+.immersive-translate-action-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: 1px solid #ea4c89;
+}
+
+.immersive-translate-btn svg {
+  margin-right: 5px;
+}
+
+.immersive-translate-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #007bff;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-primary-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-modal input[type="radio"] {
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.immersive-translate-modal label {
+  cursor: pointer;
+}
+
+.immersive-translate-close-action {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  cursor: pointer;
+}
+
+.imt-image-status {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 16px !important;
+}
+.imt-image-status img,
+.imt-image-status svg,
+.imt-img-loading {
+  width: 28px !important;
+  height: 28px !important;
+  margin: 0 0 8px 0 !important;
+  min-height: 28px !important;
+  min-width: 28px !important;
+  position: relative !important;
+}
+.imt-img-loading {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAtFBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////oK74hAAAAPHRSTlMABBMIDyQXHwyBfFdDMSw+OjXCb+5RG51IvV/k0rOqlGRM6KKMhdvNyZBz9MaupmxpWyj437iYd/yJVNZeuUC7AAACt0lEQVRIx53T2XKiUBCA4QYOiyCbiAsuuGBcYtxiYtT3f6/pbqoYHVFO5r+iivpo6DpAWYpqeoFfr9f90DsYAuRSWkFnPO50OgR9PwiCUFcl2GEcx+N/YBh6pvKaefHlUgZd1zVe0NbYcQjGBfzrPE8Xz8aF+71D8gG6DHFPpc4a7xFiCDuhaWgKgGIJQ3d5IMGDrpS4S5KgpIm+en9f6PlAhKby4JwEIxlYJV9h5k5nee9GoxHJ2IDSNB0dwdad1NAxDJ/uXDHYmebdk4PdbkS58CIVHdYSUHTYYRWOJblWSyu2lmy3KNFVJNBhxcuGW4YBVCbYGRZwIooipHsNqjM4FbgOQqQqSKQQU9V8xmi1QlgHqQQ6DDBvRUVCDirs+EzGDGOQTCATgtYTnbCVLgsVgRE0T1QE0qHCFAht2z6dLvJQs3Lo2FQoDxWNUiBhaP4eRgwNkI+dAjVOA/kUrIDwf3CG8NfNOE0eiFotSuo+rBiq8tD9oY4Qzc6YJw99hl1wzpQvD7ef2M8QgnOGJfJw+EltQc+oX2yn907QB22WZcvlUpd143dqQu+8pCJZuGE4xCuPXJqqcs5sNpsI93Rmzym1k4Npk+oD1SH3/a3LOK/JpUBpWfqNySxWzCfNCUITuDG5dtuphrUJ1myeIE9bIsPiKrfqTai5WZxbhtNphYx6GEIHihyGFTI69lje/rxajdh0s0msZ0zYxyPLhYCb1CyHm9Qsd2H37Y3lugVwL9kNh8Ot8cha6fUNQ8nuXi5z9/ExsAO4zQrb/ev1yrCB7lGyQzgYDGuxq1toDN/JGvN+HyWNHKB7zEoK+PX11e12G431erGYzwmytAWU56fkMHY5JJnDRR2eZji3AwtIcrEV8Cojat/BdQ7XOwGV1e1hDjGGjXbdArm8uJZtCH5MbcctVX8A1WpqumJHwckAAAAASUVORK5CYII=");
+  background-size: 28px 28px;
+  animation: image-loading-rotate 1s linear infinite !important;
+}
+
+.imt-image-status span {
+  color: var(--bg-2, #fff) !important;
+  font-size: 14px !important;
+  line-height: 14px !important;
+  font-weight: 500 !important;
+  font-family: "PingFang SC", Arial, sans-serif !important;
+}
+
+@keyframes image-loading-rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+</style></head>
+<body>
+
+    <header class="site-header">
+        <div class="container-header">
+            <a href="https://a577e333-b087-43ae-ac74-706452a3b960--1749114000--4c8ea1f7.app.yourware.app/#" class="logo">
+                <img src="./rnfaeu25wc.png" alt="速速归位GO Logo">
+                <span>GO</span>
+            </a>
+            <nav class="main-nav">
+                <!-- Single page, nav can be simple or link to sections -->
+                 <a href="https://a577e333-b087-43ae-ac74-706452a3b960--1749114000--4c8ea1f7.app.yourware.app/#features" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.9rem;">核心功能</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <h1 class="animate-on-scroll is-visible">告别健忘，『速速归位GO』助你打造秩序宇宙！</h1>
+                <p class="animate-on-scroll is-visible">轻松记录物品位置，闪电般找到所需，并通过趣味的"修复健忘星"玩法，让整理不再枯燥，反而充满成就感。</p>
+                <a href="https://a577e333-b087-43ae-ac74-706452a3b960--1749114000--4c8ea1f7.app.yourware.app/#cta" class="btn animate-on-scroll is-visible">立即扫码体验</a>
+                <div class="hero-visual animate-on-scroll is-visible">
+                    <img src="./2yuxqf870a.png" alt="速速归位GO 小程序界面示意">
+                </div>
+            </div>
+        </section>
+
+        <section id="problem-solution" class="container">
+            <div class="problem-solution-grid">
+                <div class="problem-description animate-on-scroll is-visible">
+                    <h2>那些"找不到"的瞬间...</h2>
+                    <h3>你是否也常常为找不到钥匙、文件或那件刚买的衣服而抓狂？时间悄悄溜走，心情也变得糟糕？</h3>
+                    <img src="./i73jiq1edn.png" alt="失物招领场景" class="problem-img" style="margin-top: 20px;">
+                </div>
+                <div class="solution-description animate-on-scroll is-visible">
+                    <h2>健忘不可怕，你需要一位得力助手！</h2>
+                    <p>「速速归位GO」小程序应运而生！它不仅是你的智能物品管家，更是你建设美丽"健忘星"的伙伴。通过简单记录，找回失落的物品，也找回生活的掌控感。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="features">
+            <div class="container">
+                <h2 style="text-align: center;" class="animate-on-scroll is-visible">「速速归位GO」能帮你做什么？</h2>
+                <div class="features-grid">
+                    <div class="feature-item animate-on-scroll is-visible">
+                        <img src="./r5ir2plrfx.png" alt="厨房收纳场景">
+                        <h3>轻松记录，万物归档</h3>
+                        <p>支持拍照记录物品，自定义多级存放位置（如：书房-书柜-第三层），添加个性标签，让每个物品都有专属"身份证"。</p>
+                    </div>
+                    <div class="feature-item animate-on-scroll is-visible">
+                        <img src="./8uzp3tfwej.png" alt="行李箱收纳场景">
+                        <h3>闪电搜索，告别寻找</h3>
+                        <p>强大的名称、标签搜索功能，再也不用翻箱倒柜，物品位置一点即现。</p>
+                    </div>
+                    <div class="feature-item animate-on-scroll is-visible">
+                        <img src="./zedgi8ff3a.png" alt="玩具收纳场景">
+                        <h3>修复星球，趣味养成</h3>
+                        <p>独创"修复健忘星"玩法！每次记录物品都能收集【记忆能量】，用于点亮和升级你的专属星球，将荒凉建设为繁荣，让整理过程充满惊喜与成就感。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gamification">
+            <div class="container gamification-content">
+                <h2 class="animate-on-scroll is-visible">不止整理，更是创造：你的专属健忘星修复之旅！</h2>
+                <p class="animate-on-scroll is-visible" style="max-width: 700px; margin-left:auto; margin-right:auto; color: #455A64;">
+                    每次成功记录物品，都是在为星球注入生命力。从最初的暗淡荒芜，随着能量积累，星球将逐渐解锁新的地貌、建筑（如记忆灯塔、秩序神殿等），最终呈现出一片生机勃勃的繁荣景象。达成特定目标（如记录物品数量、星球等级）可获得荣誉称号或解锁特殊星球装饰。
+                </p>
+                <div class="planet-evolution">
+                    <div class="planet-stage animate-on-scroll is-visible">
+                        <img src="./ai42bg1gze.png" alt="荒凉的健忘星">
+                        <h4>初始星球：荒凉之境</h4>
+                        <p style="color: #546E7A;">记录物品，收集【记忆能量】，开始修复之旅。</p>
+                    </div>
+                    <div class="planet-stage animate-on-scroll is-visible">
+                        <img src="./9krvk0v77j.png" alt="繁荣的健忘星">
+                        <h4>繁荣星球：秩序宇宙</h4>
+                        <p style="color: #546E7A;">持续记录，见证星球的华丽蜕变！</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-to-start" class="container">
+            <h2 style="text-align: center;" class="animate-on-scroll is-visible">三步开启你的秩序宇宙</h2>
+            <div class="steps-grid">
+                <div class="step animate-on-scroll is-visible">
+                    <div class="step-number">1</div>
+                    <h3>微信扫码</h3>
+                    <p>打开「速速归位GO」小程序。</p>
+                    <img src="./rnfaeu25wc.png" alt="速速归位GO小程序码" class="qr-placeholder">
+                </div>
+                <div class="step animate-on-scroll is-visible">
+                    <div class="step-number">2</div>
+                    <h3>随手记录</h3>
+                    <p>拍照、选位置、打标签，轻松搞定第一个物品。</p>
+                     <img src="./2yuxqf870a.png" alt="操作示意图" class="op-placeholder" style="max-height:150px; object-fit:cover;">
+                </div>
+                <div class="step animate-on-scroll is-visible">
+                    <div class="step-number">3</div>
+                    <h3>收集能量</h3>
+                    <p>开始建设你的"健忘星"，享受整理乐趣！</p>
+                    <img src="./zedgi8ff3a.png" alt="游戏化界面示意" class="op-placeholder" style="max-height:150px; object-fit:cover;">
+                </div>
+            </div>
+        </section>
+
+        <section id="cta">
+            <div class="container">
+                <h2 class="animate-on-scroll is-visible">是时候和混乱说再见了！</h2>
+                <p class="animate-on-scroll is-visible">立刻加入「速速归位GO」，开启你的高效整洁生活！</p>
+                <img src="./rnfaeu25wc.png" alt="速速归位GO 小程序码" class="qr-code-final animate-on-scroll is-visible">
+                <p class="animate-on-scroll is-visible" style="margin-top:10px; font-weight:bold;">微信扫一扫，立即体验</p>
+                <p class="animate-on-scroll is-visible" style="font-size: 1rem; margin-top: 20px;">现在开始，让寻找成为过去，让建设宇宙成为你的新日常！</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 速速归位工作室. All Rights Reserved.</p>
+        <!-- <p><a href="#">隐私政策</a> | <a href="mailto:support@example.com">联系我们</a></p> -->
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        // Optional: unobserve after animation
+                        // observer.unobserve(entry.target); 
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            });
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // Smooth scroll for internal links in header (if any)
+            const navLinks = document.querySelectorAll('.main-nav a[href^="#"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        // Adjust for fixed header height if necessary
+                        const headerOffset = document.querySelector('.site-header').offsetHeight;
+                        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                        const offsetPosition = elementPosition - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+
+</body></html>
